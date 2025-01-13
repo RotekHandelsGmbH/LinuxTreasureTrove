@@ -17,13 +17,16 @@ LOGDIR="/var/log"
 MAILPROG="/rotek/scripts/update/send_crontab_error_logs.sh"   # your path to the send email script 
 
 #m  h   dom     mon     dow     command
-10  23  *       *       *       CMD="/some/script.sh"; LOG="${LOGDIR}/$(basename "${CMD}").crontab.log"; "${CMD}" > "${LOG}" 2>&1 || "${MAILPROG}" "${CMD}" "${LOG}" "${MAILTO}"
+10  23  *       *       *       CMD="/some/script.sh"; LOG="${LOGDIR}/$(basename "${CMD}").crontab.log"; "${CMD}" > "${LOG}" 2>&1 || "${MAILPROG}" "${CMD}" "${LOG}" "${MAILTO}" > /dev/null
 
 # CMD="/some/script.sh"                             : The script to execute.
 # LOG="${LOGDIR}/$(basename "${CMD}").crontab.log"  : Defines the log file path, dynamically named based on the script's filename.
 # "${CMD}" > "${LOG}" 2>&1                          : Runs the script, Redirects stdout and stderr to the specified log file
 # || "${MAILPROG}" "${CMD}" "${LOG}" "${MAILTO}"    : If the script fails (exit code ≠ 0), executes the `MAILPROG` program, 
                                                       passing the script name, logfile and email address as an argument.
+# > /dev/null                                       : sending the standard output of the mailscript to /dev/null
+#                                                     if the mailscript fails, You will receive a mail from cron itself
+
 # 
 ## Dependencies
 # LOGDIR: Must be predefined in the environment or the crontab file (e.g., `LOGDIR=/var/log`).
