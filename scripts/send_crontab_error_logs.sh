@@ -23,21 +23,22 @@ EMAIL="${3}"    # Ziel-E-Mail-Adresse
 SHORT_HOSTNAME=$(hostname -s)  # Kurzform des Hostnamens
 SENDER="crontab@$(hostname)"  # Absender der E-Mail
 SUBJECT="${SHORT_HOSTNAME} : ERROR in crontab on script $(basename ${SCRIPT})"  # Betreff der E-Mail
-ERROR_LOG="/var/log/$(basename \\"${0}")_error.log"  # Fehler-Logdatei
+TEMP_DIR="/var/log"
+TEMP_ERROR_LOG="${TEMP_DIR}/$(basename \\"${0}")_temp_error.log"  # Fehler-Logdatei
 
 # Fehler-Logdatei vor jedem Durchlauf löschen
 # shellcheck disable=SC2188
-> "${ERROR_LOG}"
+> "${TEMP_ERROR_LOG}"
 
 # Überprüfen, ob die erforderlichen Dateien vorhanden sind
 if [[ ! -f "${LOGFILE}" ]]; then
-    echo "Logfile ${LOGFILE} existiert nicht." | tee -a "${ERROR_LOG}"
+    echo "Logfile ${LOGFILE} existiert nicht." | tee -a "${TEMP_ERROR_LOG}"
     exit 1
 fi
 
 # Überprüfen, ob mutt installiert ist
 if ! command -v mutt &>/dev/null; then
-    echo "Das Programm 'mutt' ist nicht installiert. Bitte installieren Sie es und versuchen Sie es erneut." | tee -a "${ERROR_LOG}"
+    echo "Das Programm 'mutt' ist nicht installiert. Bitte installieren Sie es und versuchen Sie es erneut." | tee -a "${TEMP_ERROR_LOG}"
     exit 1
 fi
 
@@ -49,16 +50,16 @@ for (( i=1; i<=ATTEMPTS; i++ )); do
 
     if [[ $? -eq 0 ]]; then
         SUCCESS=1
-        echo "E-Mail erfolgreich gesendet an ${EMAIL} mit Anhang ${LOGFILE}." | tee -a "${ERROR_LOG}"
+        echo "E-Mail erfolgreich gesendet an ${EMAIL} mit Anhang ${LOGFILE}." | tee -a "${TEMP_ERROR_LOG}"
         break
     else
-        echo "Fehler beim Senden der E-Mail. Versuch ${i} von ${ATTEMPTS} fehlgeschlagen." | tee -a "${ERROR_LOG}"
+        echo "Fehler beim Senden der E-Mail. Versuch ${i} von ${ATTEMPTS} fehlgeschlagen." | tee -a "${TEMP_ERROR_LOG}"
         sleep 5  # Kurze Pause vor dem nächsten Versuch
     fi
 
 done
 
 if [[ ${SUCCESS} -ne 1 ]]; then
-    echo "Fehler: Alle ${ATTEMPTS} Versuche zum Senden der E-Mail sind fehlgeschlagen." | tee -a "${ERROR_LOG}"
+    echo "Fehler: Alle ${ATTEMPTS} Versuche zum Senden der E-Mail sind fehlgeschlagen." | tee -a "${TEMP_ERROR_LOG}"
     exit 1
 fi
