@@ -48,3 +48,11 @@ sends an email with logfile if the called script fails (exit code ≠ 0), or can
 ### the script to send the email : 
 
 [send_crontab_error_logs.sh](https://github.com/RotekHandelsGmbH/LinuxTreasureTrove/scripts/send_crontab_error_logs.sh)
+
+
+## synchronize/transfer IMAP Servers Mailboxes
+use imapsync  
+imapsync is free - just the downloadlink is not published.  
+see : https://github.com/imapsync/imapsync/issues/257  
+Download : https://imapsync.lamiral.info/dist/  
+
