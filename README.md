@@ -2,7 +2,7 @@
 Linux treasure trove, various Ubuntu/Debian snippets for rediscovery
 
 
-## send email on failed cronjobs
+## send email on failed cronjobs crontabs howto
 sends an email with logfile if the called script fails (exit code ≠ 0), or can not be executed at all. 
 
 ### crontab entry
@@ -50,9 +50,22 @@ sends an email with logfile if the called script fails (exit code ≠ 0), or can
 [send_crontab_error_logs.sh](https://github.com/RotekHandelsGmbH/LinuxTreasureTrove/scripts/send_crontab_error_logs.sh)
 
 
-## synchronize/transfer IMAP Servers Mailboxes
+## synchronize/transfer IMAP Servers Mailboxes howto
 use imapsync  
 imapsync is free - just the downloadlink is not published.  
 see : https://github.com/imapsync/imapsync/issues/257  
 Download : https://imapsync.lamiral.info/dist/  
 
+## rsync howto
+```bash
+sudo mkdir -p /destination/directory/
+sudo rsync -aHAX --progress --numeric-ids /source/directory/ /destination/directory/
+# -a: Archive mode; preserves symbolic links, permissions, timestamps, and more.
+# -H: Preserves hard links.
+# -A: Preserves Access Control Lists (ACLs).
+# -X: Preserves extended attributes (xattrs).
+# --progress: Displays a progress bar during synchronization.
+# --numeric-ids: Transfers numeric user and group IDs to avoid mapping issues if the users/groups differ between systems.
+# /source/directory/: The trailing slash ensures only the contents of the source directory are copied (not the directory itself).
+# /destination/directory/: The target directory where files will be copied.
+```
