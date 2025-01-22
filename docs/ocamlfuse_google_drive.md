@@ -2,7 +2,6 @@
 
 - date : 2025-01-22
 
-
 ## install ocamlfuse
 
 see [Installation](https://github.com/astrada/google-drive-ocamlfuse/wiki/Installation)

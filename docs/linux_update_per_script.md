@@ -1,5 +1,6 @@
 # linux update per script howto
 
+- date : 2025-01-22
 
 ```bash
 apt-get update

@@ -1,5 +1,7 @@
 # send email logs on crontab errors howto
 
+- date : 2025-01-22
+
 sends an email with logfile if the called script fails (exit code ≠ 0), or can not be executed at all. 
 
 ## crontab entry

@@ -1,5 +1,7 @@
 # rsync howto
 
+- date : 2025-01-22
+
 ```bash
 sudo mkdir -p /destination/directory/
 sudo rsync -aHAX --progress [--quiet] --numeric-ids /source/directory/ /destination/directory/

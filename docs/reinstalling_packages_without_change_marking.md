@@ -1,9 +1,11 @@
 # reinstall packages without changing their marking (manual/auto installed) howto
 
+- date : 2025-01-22
+
 The auto/manual marking helps maintain a clean and efficient system by ensuring unused dependencies are automatically cleaned up.
 It prevents accidental removal of packages that the user explicitly wanted to keep.
 if You just reinstall a package with `apt-get reinstall` or `apt-get install --reinstall` it is marked as "manual", so it will not be cleaned up on `apt-get 
-autoremove` anymore
+autoremove` anymore  
 
 ```bash
 packages="pkg1 pkg2 pkg2"

@@ -1,5 +1,7 @@
 # AMD GPU Settings for lightdm/ubuntu-mint-mate howto
 
+- date : 2025-01-22
+
 ## Get Settings
 
 ### get the PCIe Slot
