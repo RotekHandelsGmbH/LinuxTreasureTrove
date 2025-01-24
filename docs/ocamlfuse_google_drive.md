@@ -12,7 +12,7 @@ sudo apt-get update
 sudo apt-get install google-drive-ocamlfuse
 ```
 
-## create a new google cloud project
+## create a new google cloud project (or check each and every point on your existing project)
 
 - go to [Google Cloud](https://console.cloud.google.com) and create a new project
 - open Your project
@@ -26,7 +26,7 @@ sudo apt-get install google-drive-ocamlfuse
   - note the secret(key): `******-****************************`
   - go to [OAuth.Consent](https://console.cloud.google.com/apis/credentials/consent)
     - leave the APP in Test Mode
-    - add Your Google Account `yourusername@gmail.com` as a test user - otherwise the key will expire after 7 days
+    - add Your Google Account `yourusername@gmail.com` as a test user - **otherwise the key will expire after 7 days**
 
 ## install the key on the linux machine
 
