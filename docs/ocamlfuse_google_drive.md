@@ -34,7 +34,7 @@ sudo apt-get install google-drive-ocamlfuse
 
 ```bash
 rm -rf ~/.gdfuse/default  # this is crucial
-lxc exec lxc-pydev -- google-drive-ocamlfuse \
+google-drive-ocamlfuse \
   -id "YOUR_CLIENT_ID" \
   -secret "YOUR_CLIENT_SECRET"
 # Follow the OAuth flow
@@ -44,7 +44,7 @@ lxc exec lxc-pydev -- google-drive-ocamlfuse \
 
 ```bash
 rm -rf ~/.gdfuse/default  # this is crucial
-lxc exec lxc-pydev -- google-drive-ocamlfuse -headless \
+google-drive-ocamlfuse -headless \
   -id "YOUR_CLIENT_ID" \
   -secret "YOUR_CLIENT_SECRET"
 # Follow the OAuth flow
