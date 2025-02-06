@@ -42,7 +42,7 @@ cat /var/log/lightdm/lightdm.log
 cat /etc/default/grub | grep GRUB_CMDLINE_LINUX_DEFAULT
 # check following options are present, put the correct PCIe Slot 
 # /etc/default/grub:
-#> GRUB_CMDLINE_LINUX_DEFAULT="[...] [...] [...] systemd.unit=graphical.target radeon.si_support=0 amdgpu.si_support=1 drm.primary=PCI:0000:01:00.0"
+#> GRUB_CMDLINE_LINUX_DEFAULT="[...] [...] [...] systemd.unit=graphical.target radeon.si_support=0 amdgpu.si_support=1 amdgpu.dc=1 drm.primary=PCI:0000:01:00.0"
 
 # - "systemd.unit=graphical.target": parameter is used to configure the system to boot directly into the graphical user interface (GUI).
 # It sets the systemd target to "graphical.target," which starts all necessary services for a graphical session.
@@ -54,6 +54,7 @@ cat /etc/default/grub | grep GRUB_CMDLINE_LINUX_DEFAULT
 
 # - "radeon.si_support=0": Disables support for Southern Islands (SI) GPUs in the Radeon driver.
 # - "amdgpu.si_support=1": Enables support for Southern Islands (SI) GPUs in the AMDGPU driver.
+# - "amdgpu.dc=1": Activates the Display Core Driver in the AMDGPU driver.
 # - "drm.primary=PCI:0000:01:00.0": Specifies the primary GPU device by its PCI address.
 # These settings are useful for optimizing GPU usage, especially when switching between Radeon and AMDGPU drivers.
 ```
@@ -62,6 +63,18 @@ cat /etc/default/grub | grep GRUB_CMDLINE_LINUX_DEFAULT
 sudo update-grub
 sudo initramfs -u
 sudo reboot now
+```
+
+## if radeon is still in use, force amdgpu
+
+```bash
+echo "options amdgpu si_support=1" > /etc/modprobe.d/amdgpu.conf
+echo "options radeon si_support=0" > /etc/modprobe.d/radeon.conf
+sudo initramfs -u
+sudo reboot now
+# after
+lspci -k | grep -EA3 'VGA|3D|Display'
+# amdgpu must be in use !
 ```
 
 ## if X is not coming up : 
