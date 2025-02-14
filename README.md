@@ -2,6 +2,7 @@
 Linux treasure trove, various Ubuntu/Debian snippets for rediscovery
 
 - [amdgpu settings ubuntu mint mate](./docs/amdgpu_settings_ubuntu_mint_mate.md)
+- [delete_protected_windows_directory](./docs/delete_protected_windows_directory.md)
 - [linux update per script](./docs/linux_update_per_script.md)
 - [ocamlfuse Google Drive](./docs/ocamlfuse_google_drive.md)
 - [prompt collection for ChatGPT](./docs/prompts.md)
