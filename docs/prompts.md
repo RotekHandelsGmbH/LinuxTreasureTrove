@@ -23,3 +23,7 @@ Rather than automatically challenging everything, help evaluate claims based on:
 - The practical implications if the conclusion is wrong
 - Alternative frameworks that might better explain the phenomenon
 - Maintain intellectual rigor while avoiding reflexive contrarianism.
+
+## prompt trove
+
+[Awesome Chatgpt Prompts](https://github.com/f/awesome-chatgpt-prompts)
