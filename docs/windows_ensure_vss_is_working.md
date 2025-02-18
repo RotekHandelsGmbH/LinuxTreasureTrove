@@ -17,7 +17,11 @@ services.msc
 # Run DiskShadow from an Elevated Command Prompt:
 # Powershell as Admin :
 diskshadow
-
+help
 # If both services are running and you still encounter issues, make sure that your system’s environment variables 
 # include the path to C:\Windows\System32 where DiskShadow resides. This should allow you to run DiskShadow without any further adjustments.
+
+# list shadowstorages
+vssadmin list shadowstorage
+
 ```
