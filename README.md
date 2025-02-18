@@ -11,5 +11,6 @@ Linux treasure trove, various Ubuntu/Debian snippets for rediscovery
 - [rsync howto](./docs/rsync.md) 
 - [send email logs on crontab errors](./docs/send_email_logs_on_crontab_errors.md)
 - [synchronize imap servers and mailboxes](./docs/synchronize_imap_servers_and_mailboxes.md)
+- [Windows - create new recovery image with all drivers](./docs/windows_create_new_recovery.md)
 - [Windows - delete protected directories](./docs/windows_delete_protected_directories.md)
 - [Windows - ensure that Shadow Copy Service (VSS) is working](./docs/windows_ensure_vss_is_working.md)
