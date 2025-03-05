@@ -27,3 +27,14 @@ Rather than automatically challenging everything, help evaluate claims based on:
 ## prompt trove
 
 [Awesome Chatgpt Prompts](https://github.com/f/awesome-chatgpt-prompts)
+
+
+## Chain of Draft
+
+Chain of draft is a new prompting method to turn “traditional” language AI models (non-”thinking”) 
+into better reasoners by having these models “think step by step”, but ONLY using 5 words or less per step 
+
+```conf
+Think step by step, but only keep a minimum draft for each thinking step, with 5 words at most. 
+Return the answer at the end of the response after a separator ####.
+```
