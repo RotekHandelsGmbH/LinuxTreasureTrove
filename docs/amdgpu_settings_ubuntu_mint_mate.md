@@ -239,6 +239,53 @@ echo $XDG_SESSION_DESKTOP
 
 ---
 
+# gpu passthrough (here for two HD7990 cards)
+
+## for the lxc container 
+
+```bash
+# on the host : 
+ls -l /dev/kfd /dev/dri
+
+/dev/kfd:
+crw-rw---- 1 root render 236, 0 Mar 11 20:39 /dev/kfd
+
+/dev/dri:
+total 0
+drwxr-xr-x 2 root root        160 Mar 11 20:39 by-path
+crw-rw---- 1 root video  226,   0 Mar 11 20:39 card0
+crw-rw---- 1 root video  226,   1 Mar 11 20:39 card1
+crw-rw---- 1 root video  226,   2 Mar 11 20:39 card2
+crw-rw---- 1 root render 226, 128 Mar 11 20:39 renderD128
+crw-rw---- 1 root render 226, 129 Mar 11 20:39 renderD129
+crw-rw---- 1 root render 226, 130 Mar 11 20:39 renderD130
+```
+
+Given the host's actual device info:
+
+/dev/kfd --> major:minor = 236:0
+/dev/dri/ --> 226:x - multiple GPU devices/cards
+We need to adjust the container configuration accordingly:
+
+```bash
+# /etc/pve/lxc/<ctid>.conf
+# Allow /dev/kfd
+lxc.cgroup2.devices.allow: c 236:0 rwm
+lxc.mount.entry: /dev/kfd dev/kfd none bind,optional,create=file
+
+# Allow /dev/dri for GPU devices
+lxc.cgroup2.devices.allow: c 226:* rwm
+lxc.mount.entry: /dev/dri dev/dri none bind,optional,create=dir
+```
+Verify Device Visibility inside the container:
+Once restarted, enter the container and verify:
+
+```bash
+ls -l /dev/kfd /dev/dri
+You should now see similar entries as your host.
+```
+
+
 ---
 
 # Documentation: Relationship Between AMD GPU Drivers, LightDM, MATE, and Xserver  
@@ -307,12 +354,12 @@ This document outlines the roles, dependencies, and workflow between AMD GPU dri
 
 ## **3. Key Dependencies and Interactions**  
 
-| Component        | Depends On               | Interaction Purpose                                                                 |  
-|-------------------|--------------------------|-------------------------------------------------------------------------------------|  
-| **AMD GPU Driver** | Linux Kernel             | Direct hardware control (GPU initialization, memory management).                   |  
-| **Xserver**        | AMD GPU Driver           | Translates X11 commands into GPU-specific instructions (e.g., OpenGL calls).       |  
-| **LightDM**        | Xserver                  | Renders the login screen and launches user sessions via Xserver.                   |  
-| **MATE**           | Xserver                  | Uses X11 protocol for window rendering, input handling, and display configuration. |  
+| Component          | Depends On     | Interaction Purpose                                                                |  
+|--------------------|----------------|------------------------------------------------------------------------------------|  
+| **AMD GPU Driver** | Linux Kernel   | Direct hardware control (GPU initialization, memory management).                   |  
+| **Xserver**        | AMD GPU Driver | Translates X11 commands into GPU-specific instructions (e.g., OpenGL calls).       |  
+| **LightDM**        | Xserver        | Renders the login screen and launches user sessions via Xserver.                   |  
+| **MATE**           | Xserver        | Uses X11 protocol for window rendering, input handling, and display configuration. |  
 
 ---
 
