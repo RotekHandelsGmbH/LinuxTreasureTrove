@@ -239,7 +239,7 @@ echo $XDG_SESSION_DESKTOP
 
 ---
 
-# gpu passthrough (here for two HD7990 cards)
+# gpu usage in the lxc container (here for two HD7990 cards)
 
 ## for the lxc container 
 
@@ -283,6 +283,23 @@ Once restarted, enter the container and verify:
 ```bash
 ls -l /dev/kfd /dev/dri
 You should now see similar entries as your host.
+```
+
+## install openl and vulkan drivers (on the lxc client)
+
+```bash
+sudo apt install mesa-opencl-icd clinfo mesa-vulkan-drivers vulkan-tools
+ls -la /dev/kfd   # check permissions, add user to video, renderer, whatever is needed 
+ls -la /dev/dri   # check permissions, add user to video, renderer, whatever is needed
+clinfo            # try as root if permissions error and fix those afterwards
+vulkaninfo        # try as root if permissions error and fix those afterwards
+```
+
+## install Mesa's VA-API (Video Acceleration API) driver (on the lxc client)
+
+```bash
+sudo apt install mesa-va-drivers libva2 libva-drm2 libva-x11-2 vainfo
+vainfo
 ```
 
 
