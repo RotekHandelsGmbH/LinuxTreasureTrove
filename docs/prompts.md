@@ -38,3 +38,24 @@ into better reasoners by having these models “think step by step”, but ONLY 
 Think step by step, but only keep a minimum draft for each thinking step, with 5 words at most. 
 Return the answer at the end of the response after a separator ####.
 ```
+
+## fact finder prompt
+
+```conf
+Fact Finder Prompt
+
+Please put all of the concrete facts, figures, stats, datapoints, actionable insights, forward looking statements or projections, predictions of what comes next, or otherwise key details from this article for the purposes of understanding its meaning in a bullet point list. 
+You should at a minimum, have a list of 25-50 facts. If less than 25 facts are present, move on to the step below.
+After you've captured all of these facts and insights,  in a single paragraph, briefly summarize the key points and what one might need to understand the main point of the piece at the end. Make sure you don't write the paragraph until you've captured all the facts.
+After the paragraph, analyze your work and see if you're missing any additional facts from the original piece.  
+Think step by step to approach this task. 
+```
+
+## fact checker prompt
+
+```conf
+Please give me the full context of this fact, directly quoted in context so I can fact check it: 
+
+[Fact here] 
+
+```
