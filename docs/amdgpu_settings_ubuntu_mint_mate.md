@@ -295,7 +295,7 @@ clinfo            # try as root if permissions error and fix those afterwards
 vulkaninfo        # try as root if permissions error and fix those afterwards
 ```
 
-## install Mesa's VA-API (Video Acceleration API) driver (on the lxc client)
+## install Mesa's VA-API (Video Acceleration API) driver (on the lxc client, only if X11 or wayland is running)
 
 ```bash
 sudo apt install mesa-va-drivers libva2 libva-drm2 libva-x11-2 vainfo
