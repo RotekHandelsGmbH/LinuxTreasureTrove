@@ -59,3 +59,10 @@ Please give me the full context of this fact, directly quoted in context so I ca
 [Fact here] 
 
 ```
+
+## fact checker2 prompt
+
+```conf
+Please fact check each fact in the above output against the original sources to confirm they are accurate. 
+Assume there are mistakes, so don't stop until you've checked every fact and found all mistakes.
+```
