@@ -68,3 +68,10 @@ on the first boot You will have to import rpool manually :
 zpool import rpool -f
 exit
 ```
+
+## correct proxmox boot uuids
+```bash
+update-initramfs -c -k all  # this will warn about wrong boot UUID
+lsblk -o NAME,UUID,MOUNTPOINT # note the UUID of the EFi Disk
+nano /etc/kernel/proxmox-boot-uuids # put the correct UUID here
+```
