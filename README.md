@@ -1,7 +1,13 @@
 # LinuxTreasureTrove
 Linux treasure trove, various Ubuntu/Debian snippets for rediscovery
 
+## Graphics
 - [amdgpu settings ubuntu mint mate](./docs/amdgpu_settings_ubuntu_mint_mate.md)
+
+## Storage 
+- [set LSI Megaraid from RAID to HBA](./docs/set_lsi_megaraid_hba.md)
+
+## Misc
 - [linux update per script](./docs/linux_update_per_script.md)
 - [ocamlfuse Google Drive](./docs/ocamlfuse_google_drive.md)
 - [performance tracing](./docs/performance_tracing.md)
