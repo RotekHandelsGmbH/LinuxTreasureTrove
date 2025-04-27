@@ -6,6 +6,7 @@ Linux treasure trove, various Ubuntu/Debian snippets for rediscovery
 
 ## Storage 
 - [set LSI Megaraid from RAID to HBA](./docs/set_lsi_megaraid_hba.md)
+- [set 3WARE9750-4i from RAID to HBA](./docs/set_3ware_9750-4i_hba.md)
 
 ## Misc
 - [linux update per script](./docs/linux_update_per_script.md)
