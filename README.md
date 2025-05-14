@@ -15,6 +15,7 @@ Linux treasure trove, various Ubuntu/Debian snippets for rediscovery
 - [prompt collection for ChatGPT](./docs/prompts.md)
 - [proxmox: rename a node in a cluster](./docs/rename_proxmox_node_in_a_cluster.md) 
 - [proxmox: transfer zfs bootdisk to a smaller drive](./docs/transfer_proxmox_zfs_bootdisk_to_a_smaller_drive.md)
+- [proxmox: mirror zfs bootdisk](./docs/proxmox-mirror-zfs-bootdisk.md)
 - [reinstalling packages without changing their marking](./docs/reinstalling_packages_without_change_marking.md)
 - [rsync howto](./docs/rsync.md) 
 - [send email logs on crontab errors](./docs/send_email_logs_on_crontab_errors.md)
