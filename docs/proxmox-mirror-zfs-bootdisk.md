@@ -65,7 +65,7 @@ zpool status
 
 ```
 
-## ✅ Step5: Attach ZFS Partition (sdb3) to Mirror the Pool
+## ✅ Step5: transfer Bootloader (EFI) to the mirror
 ```bash
 # Format EFI Partition (Proxmox way)
 proxmox-boot-tool format /dev/sdb2 --force

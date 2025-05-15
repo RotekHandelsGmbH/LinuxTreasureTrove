@@ -38,7 +38,7 @@ zpool create -f \
   -O atime=off \
   -O mountpoint=/rpool \
   -R /mnt/newrpool \
-  rpool-new /dev/sdc3   # select correct partition here
+  rpool /dev/sdb3   # select correct partition here
 ```
 
 ## Snapshot the oldrpool
@@ -52,15 +52,21 @@ zfs snapshot -r oldrpool/var-lib-vz@transfer
 
 ## Send the Snapshot to the New rpool
 ```bash
-zfs send -R oldrpool/ROOT@transfer | zfs receive -F newrpool/ROOT
-zfs send -R oldrpool/data@transfer | zfs receive -F newrpool/data
-zfs send -R oldrpool/var-lib-vz@transfer | zfs receive -F newrpool/var-lib-vz
+zfs send -R oldrpool/ROOT@transfer | zfs receive -F rpool/ROOT
+zfs send -R oldrpool/data@transfer | zfs receive -F rpool/data
+zfs send -R oldrpool/var-lib-vz@transfer | zfs receive -F rpool/var-lib-vz
 # ... make that for all Pools
 ```
-## delete all snapshots
+## delete all snapshots on new disk
 ```bash
 zfs list -H -o name -t snapshot -r rpool | xargs -n1 zfs destroy
 ```
+
+## copy the EFI Partition
+```bash
+dd if=/dev/sda2 of=/dev/sdb2 bs=64K
+```
+
 
 ## boot from the new disk
 on the first boot You will have to import rpool manually :
@@ -71,7 +77,7 @@ exit
 
 ## correct proxmox boot uuids
 ```bash
-update-initramfs -c -k all  # this will warn about wrong boot UUID
+update-initramfs -c -k all  # this may warn about wrong boot UUID
 lsblk -o NAME,UUID,MOUNTPOINT # note the UUID of the EFi Disk
-nano /etc/kernel/proxmox-boot-uuids # put the correct UUID here
+nano /etc/kernel/proxmox-boot-uuids # put the correct UUID here if needed
 ```
