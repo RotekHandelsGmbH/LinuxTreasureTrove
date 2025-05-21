@@ -22,5 +22,6 @@ Linux treasure trove, various Ubuntu/Debian snippets for rediscovery
 - [synchronize imap servers and mailboxes](./docs/synchronize_imap_servers_and_mailboxes.md)
 - [Windows: create new recovery image with all drivers](./docs/windows_create_new_recovery.md)
 - [Windows: delete protected directories](./docs/windows_delete_protected_directories.md)
+- [Windows: optimize server performance, disable background services](./docs/windows_disable_background_services.md) 
 - [Windows: shrink installation size](./docs/windows_shrink_install_size.md)
 - [Windows: make sure that Shadow Copy Service (VSS) is working](./docs/windows_ensure_vss_is_working.md)
