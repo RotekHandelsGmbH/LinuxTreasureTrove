@@ -72,6 +72,9 @@ dd if=/dev/sda2 of=/dev/sdb2 bs=64K
 on the first boot You will have to import rpool manually :
 ```bash
 zpool import rpool -f
+# to get correct host id - export and re-import
+zpool export rpool
+zpool import rpool
 exit
 ```
 
