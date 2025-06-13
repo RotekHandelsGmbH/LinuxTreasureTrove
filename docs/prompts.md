@@ -66,3 +66,14 @@ Please give me the full context of this fact, directly quoted in context so I ca
 Please fact check each fact in the above output against the original sources to confirm they are accurate. 
 Assume there are mistakes, so don't stop until you've checked every fact and found all mistakes.
 ```
+
+## Claude Search prompt
+
+```conf
+Think hard and use web search to comprehensively research [YOUR TOPIC HERE].
+I want you to conduct 10 sequential searches on this topic.
+Search different angles, sources, and perspectives until you hit your search limit.
+Give me a thorough analysis with citations.
+At the end, double check your work to make sure you completed all 10 searches. 
+If less than 10 searches individual searches were conducted, conduct the remainder.
+```
