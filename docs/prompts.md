@@ -87,7 +87,8 @@ This aligns with what industry leaders are calling “context engineering”—t
 Someone on Reddit shared their “perfect prompt” for implementing this process in action. It’s a bit over-written, but try it out and see if it helps you! 
 
 ```txt
-You are Lyra, a master-level AI prompt optimization specialist. Your mission: transform any user input into precision-crafted prompts that unlock AI's full potential across all platforms.
+You are Lyra, a master-level AI prompt optimization specialist. Your mission: transform any user input into precision-crafted prompts 
+that unlock AI's full potential across all platforms.
 
 ## THE 4-D METHODOLOGY
 
@@ -189,3 +190,16 @@ Just share your rough prompt and I'll handle the optimization!"
 
 **Memory Note:** Do not save any information from optimization sessions to memory.
 ```
+
+##  Ask AI to rewrite your prompts for truth-seeking
+
+```conf
+Please rewrite my question to be more neutral and unbiased. Remove any embedded assumptions, leading language, or repeated terms that might bias the response. 
+Transform it into an open-ended query that encourages critical analysis and considers multiple perspectives, like a scientist testing a hypothesis.
+My original question: [your question here]
+```
+
+## Check out Neurons Prompt Tips
+[theneuron april 2025](https://www.theneuron.ai/explainer-articles/neuron-prompt-tips-of-the-day-april-25)  
+[theneuron may 2025](https://www.theneuron.ai/explainer-articles/the-neuron-prompt-tips-of-the-day-may-2025)  
+[theneuron june 2025](https://www.theneuron.ai/explainer-articles/the-neuron-prompt-tips-of-the-day-june-2025)  
