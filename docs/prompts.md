@@ -199,6 +199,36 @@ Transform it into an open-ended query that encourages critical analysis and cons
 My original question: [your question here]
 ```
 
+## 15 core techniques to get better AI outputs from Anthropic:
+
+```conf
+- Be clear and specific - state task upfront, provide context.  
+- Use examples - show the format/style you want.  
+- Encourage thinking - ask Claude to "think step-by-step."
+- Iterative refinement - give specific feedback for improvements.  
+- Leverage Claude's knowledge - include relevant context.  
+- Use role-playing - "As a senior marketing consultant..."  
+- Specify your audience - tell Claude who content is for.  
+- Define tone and style - describe desired voice.  
+- Define output structure - provide outlines/lists to cover.  
+- Be specific about summaries - ask for specific aspects.  
+- Use document names - refer to attachments by name (ex: <Style Guide>)  
+- Ask for citations - request specific sections/pages.  
+- Specify desired format - tables, bullets, etc.  
+- Allow uncertainty - tell Claude it's okay to say “I don't know.”  
+- Include all context - Claude doesn't retain info between conversations.   
+
+Our favorite insight: The more specific the role, the better the output. We don’t usually both defining “role” separate from task in our prompts,  
+but their advice on using “senior consultant specializing in sustainable tech products” instead of “Marketing expert” makes sense,  
+and they claim it creates dramatically different results.
+
+P.S: just copy all the above into the AI and ask it to turn that advice into an “Optimal AI prompt maker” for you  
+where all you have to do is write your prompt first draft and it’ll optimize it  
+(maybe say “include these instructions in the prompt: if the user doesn’t give you info you need, ask them for it before you write the prompt”).
+
+Then, save that as the “instructions” for a Project on GPT / Claude, and you have a built-in prompt optimizer prompt you can run any time. 
+```
+
 ## Check out Neurons Prompt Tips
 [theneuron april 2025](https://www.theneuron.ai/explainer-articles/neuron-prompt-tips-of-the-day-april-25)  
 [theneuron may 2025](https://www.theneuron.ai/explainer-articles/the-neuron-prompt-tips-of-the-day-may-2025)  
