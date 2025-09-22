@@ -1,5 +1,19 @@
 # prompts
 
+## Better Summary
+Researchers recently found out that “ChatGPT Plus” tends to produce misleading briefs when summarizing scientific papers, revealing that the AI prioritizes engaging readability over scientific accuracy (paper).
+
+There’s three tricks that we’ve found dramatically improve the quality of the summary you get when you ask AI to summarize for you:
+
+    Add the words “summarize with 100% fidelity to the original” to your prompt.
+
+    Use Gemini 2.5 Pro (in AI studio, if non-sensitive data, or in Gemini, if using sensitive data) with max Thinking budget for its long-context accuracy; it’s not perfect, but it’s from what we can tell the highest quality model at maintaining accuracy across long context information up until ~200K-300K tokens context.
+
+    Ask the AI to do an initial pass through to organize all unique ideas from the paper into a structure format (like Cornell-style; prompt below). 
+
+Before drafting, you must first process the provided outline and any associated source material. Extract every unique idea, fact, statistic, and quote. Organize them in a Cornell-style format where each main idea is a top-level number and sub-points are nested (e.g., 1.1, 1.2, 2.1). This creates a structured knowledge base that will be used for drafting, allowing facts to be easily referenced, remixed, and combined.
+
+
 ## ChatGPT to stop agreeing with everything you say
 
 Do not simply affirm my statements or assume my conclusions are correct. 
