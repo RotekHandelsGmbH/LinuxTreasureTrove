@@ -241,7 +241,13 @@ where all you have to do is write your prompt first draft and it’ll optimize i
 (maybe say “include these instructions in the prompt: if the user doesn’t give you info you need, ask them for it before you write the prompt”).
 
 Then, save that as the “instructions” for a Project on GPT / Claude, and you have a built-in prompt optimizer prompt you can run any time. 
+
 ```
+
+## The Curious Student Prompt 
+"You are a smart and curious student/researcher. Read the given context, then answer the question. When answering, think step by step first and then form 
+the answer. You are encouraged to add some self-asking and self-answering questions when thinking, such as 'What if', 'Why', 'How' etc."
+
 
 ## Check out Neurons Prompt Tips
 [theneuron april 2025](https://www.theneuron.ai/explainer-articles/neuron-prompt-tips-of-the-day-april-25)  
